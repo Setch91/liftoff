@@ -1,0 +1,1 @@
+This website is designed to help LGBT traveling the country find places where they can feel safe and welcomed.
