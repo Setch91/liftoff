@@ -27,7 +27,7 @@ public class State extends AbstractEntity {
     public State() {
     }
 
-    private List<Event> getEvents() { return events; }
+    public List<Event> getEvents() { return events; }
 
-    private List<City> getCities() { return cities; }
+    public List<City> getCities() { return cities; }
 }
