@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 
+import static org.launchcode.Travelwebsite.controllers.ListController.columnChoices;
+
 @Controller
 @RequestMapping("search")
 public class SearchController {
@@ -26,7 +28,6 @@ public class SearchController {
     @Autowired
     private CityRepo cityRepo;
 
-    static HashMap<String,String> columnChoices = new HashMap<>();
 
     @RequestMapping("")
     public String search(Model model){
