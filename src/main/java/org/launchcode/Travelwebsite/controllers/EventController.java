@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("event")
+@RequestMapping("events")
 public class EventController {
 
     @Autowired
@@ -21,13 +21,13 @@ public class EventController {
     @GetMapping("add")
     public String displayAddEventForm(Model model){
         model.addAttribute(new Event());
-        return "event/add";
+        return "events/add";
     }
 
     @PostMapping("add")
     public String processAddCityForm(@ModelAttribute @Valid Event newEvent, Errors errors){
         if (errors.hasErrors()){
-            return "event/add";
+            return "events/add";
         }
 
         eventRepo.save(newEvent);
@@ -41,7 +41,7 @@ public class EventController {
         if (optEvent.isPresent()){
             Event event = (Event) optEvent.get();
             model.addAttribute("event", event);
-            return "event/view";
+            return "events/view";
         } else return "redirect../";
 
     }

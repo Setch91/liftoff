@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container  body-content">
+<h1>Add Event</h1>
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label th:for="name">Event Name</label>
+        <input class="form-control" th:field="${event.name}" />
+        <span th:errors="${event.name}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="date">Event Date</label>
+        <input class="form-control" th:field="${event.date}" />
+        <span th:errors="${event.date}" class="error"></span>
+    </div>
+
+    <input type="submit" value="Add Event" />
+</form>
+
+</body>
+</html>

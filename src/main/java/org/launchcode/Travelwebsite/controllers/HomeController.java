@@ -28,7 +28,7 @@ public class HomeController {
     @Autowired
     private CityRepo cityRepo;
 
-    @GetMapping
+    @GetMapping("add")
     public String displayAddStateForm(Model model){
         model.addAttribute("title", "Add State");
         model.addAttribute("cities",cityRepo.findAll());

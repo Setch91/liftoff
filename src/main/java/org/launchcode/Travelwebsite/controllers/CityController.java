@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("city")
+@RequestMapping("cities")
 public class CityController {
 
     @Autowired
@@ -21,13 +21,13 @@ public class CityController {
     @GetMapping("add")
     public String displayAddCityForm(Model model){
         model.addAttribute(new City());
-        return "city/add";
+        return "cities/add";
     }
 
     @PostMapping("add")
     public String processAddCityForm(@ModelAttribute @Valid City newCity, Errors errors){
         if (errors.hasErrors()){
-            return "city/add";
+            return "cities/add";
         }
 
         cityRepo.save(newCity);
@@ -41,7 +41,7 @@ public class CityController {
         if (optCity.isPresent()){
             City city = (City) optCity.get();
             model.addAttribute("city", city);
-            return "city/view";
+            return "cities/view";
         } else return "redirect../";
 
     }

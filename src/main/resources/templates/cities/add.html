@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container  body-content">
-<h1>Add Employer</h1>
+<h1>Add City</h1>
 
 <nav th:replace="fragments :: page-header"></nav>
 
@@ -14,9 +14,9 @@
     </div>
 
     <div class="form-group">
-        <label th:for="location">City Location</label>
-        <input class="form-control" th:field="${employer.location}" />
-        <span th:errors="${employer.location}" class="error"></span>
+        <label th:for="pride">City Pride</label>
+        <input class="form-control" th:field="${city.pride}" />
+        <span th:errors="${city.pride}" class="error"></span>
     </div>
 
     <input type="submit" value="Add City" />

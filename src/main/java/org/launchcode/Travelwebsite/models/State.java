@@ -20,9 +20,8 @@ public class State extends AbstractEntity {
     @JoinColumn
     private List<Event> events = new ArrayList<>();
 
-    @NotNull
-    @Size(min = 1, max = 5)
-    private Integer rank;
+//    @Size(min = 1, max = 5)
+//    private Integer rank;
 
     public State() {
     }
