@@ -16,11 +16,15 @@
 
     <div class="form-group">
         <label th:for="city">City</label>
-        <select name="cityId">
-            <option th:each="city : ${cities}"
-                    th:text="${city.name}"
-                    th:value="${city.id}"></option>
-        </select>
+        <th:block th:each="city: ${cities}">
+            <input type="checkbox" name="cities" th:value="${city.id}">
+            <label th:text="${city.name}"></label>
+        </th:block>
+<!--        <select name="cityId">-->
+<!--            <option th:each="city : ${cities}"-->
+<!--                    th:text="${city.name}"-->
+<!--                    th:value="${city.id}"></option>-->
+<!--        </select>-->
         <a th:href="@{'/cities/add'}">Add Cities</a>
     </div>
 

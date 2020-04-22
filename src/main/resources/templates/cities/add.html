@@ -19,6 +19,18 @@
         <span th:errors="${city.pride}" class="error"></span>
     </div>
 
+    <div class="form-group">
+        <label th:for="bars">City Bars</label>
+        <input class="form-control" th:field="${city.bars}" />
+        <span th:errors="${city.bars}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="destinations">City Destinations</label>
+        <input class="form-control" th:field="${city.destinations}" />
+        <span th:errors="${city.destinations}" class="error"></span>
+    </div>
+
     <input type="submit" value="Add City" />
 </form>
 
