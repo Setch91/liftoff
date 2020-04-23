@@ -50,4 +50,8 @@ public class City extends AbstractEntity {
     public void setDestinations(String destinations) {
         this.destinations = destinations;
     }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
 }

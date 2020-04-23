@@ -35,8 +35,8 @@ public class EventController {
         return "redirect:view/"+newEvent.getId();
     }
 
-    @GetMapping("view/{EventId}")
-    public String displayViewCity(Model model, @PathVariable int eventId){
+    @GetMapping("view/{eventId}")
+    public String displayViewEvent(Model model, @PathVariable int eventId){
         Optional optEvent = eventRepo.findById(eventId);
         if (optEvent.isPresent()){
             Event event = (Event) optEvent.get();

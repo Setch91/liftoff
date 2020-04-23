@@ -15,6 +15,12 @@
     </div>
 
     <div class="form-group">
+        <label th:for="location">Location</label>
+        <input class="form-control" th:field="${state.location}" />
+        <span th:errors="${state.location}" class="error"></span>
+    </div>
+
+    <div class="form-group">
         <label th:for="city">City</label>
         <th:block th:each="city: ${cities}">
             <input type="checkbox" name="cities" th:value="${city.id}">

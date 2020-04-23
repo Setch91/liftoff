@@ -7,8 +7,9 @@
 
 <nav th:replace="fragments :: page-header"></nav>
 
-<div class="job-listing">
+<div class="event-listing">
     <p th:text="${'Name: ' + event.name}"></p>
+    <p th:text="${'Location: ' + event.location}"></p>
     <p th:text="${'Date: ' + event.date}"></p>
 </div>
 

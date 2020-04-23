@@ -1,68 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head">
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
 
-<div th:replace="fragments :: page-header"></div>
+<body class="container  body-content">
+<h1 th:text="${'State: ' + state.name}">State</h1>
 
-<div class="container body-content">
+<nav th:replace="fragments :: page-header"></nav>
 
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
-
-    <form th:action="@{/search/results}" method = "post">
-        <h2>Search by:</h2>
-
-        <p>
-            <span th:each="column : ${columns}">
-                <input
-                        type="radio"
-                        name="searchType"
-                        th:id="${column.key}"
-                        th:value="${column.key}"
-                        th:checked="${column.key == 'all'}"/>
-                <label th:for="${column.key}" th:text="${column.value}"></label>
-            </span>
-
-        </p>
-
-        <p>
-            <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
-        </p>
-
-        <input type="submit" value="Search" />
-    </form>
-
-    <hr />
-
-
-    <table class="state-listing">
-        <tr th:each="state : ${states}">
-            <td>
-                <p>
-                    State Id:
-                    <a th:href="@{'/view/' + ${state.id}}" th:text="${state.id}"></a>
-                </p>
-                <p th:text="${'Name: ' + state.name}"></p>
-                <p>
-                    City:
-                    <a th:href="@{'/cities/view/' + ${state.city.id}}" th:text="${state.city.name}"></a>
-                </p>
-                <p>
-                    Events:
-                <ul th:each="event : ${state.events}">
-                    <li>
-                        <a th:href="@{'/events/view/' + ${event.id}}" th:text="${event.name}"></a>
-                    </li>
-                </ul>
-                </p>
-
-            </td>
-        </tr>
-    </table>
-
+<div class="state-listing">
+    <p th:text="${'ID: ' + state.id}"></p>
+    <p th:text="${'Name: ' + state.name}"></p>
+    <p th:text="${'Location: ' + state.location}"></p>
+    <p>
+        Cities:
+    <ul>
+        <li th:each="city : ${state.cities}">
+            <a th:href="@{'/cities/view/' + ${city.id}}" th:text="${city.name}"></a>
+        </li>
+    </ul>
+    </p>
+    <p> Events:
+    <ul>
+        <li th:each="event : ${state.events}">
+            <a th:href="@{'/events/view/' + ${event.id}}" th:text="${event.name}"></a>
+        </li>
+    </ul>
+    </p>
 </div>
+
 
 </body>
 </html>

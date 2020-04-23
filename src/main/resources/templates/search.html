@@ -47,7 +47,11 @@
                 <p th:text="${'Name: ' + state.name}"></p>
                 <p>
                     City:
-                    <a th:href="@{'/cities/view/' + ${state.city.id}}" th:text="${state.city.name}"></a>
+                <ul>
+                    <li th:each="city : ${state.cities}">
+                        <a th:href="@{'/cities/view/' + ${city.id}}" th:text="${city.name}"></a>
+                    </li>
+                </ul>
                 </p>
                 <p>
                     Events:

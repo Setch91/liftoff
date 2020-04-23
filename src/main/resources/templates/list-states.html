@@ -15,16 +15,20 @@
             <td>
                 <p>
                     State Id:
-                    <a th:href="@{'/view/' + ${state.id}}" th:text="${job.id}"></a>
+                    <a th:href="@{'/view/' + ${state.id}}" th:text="${state.id}"></a>
                 </p>
                 <p th:text="${'Name: ' + state.name}"></p>
                 <p>
                     City:
-                    <a th:href="@{'/cities/view/' + ${state.city.id}}" th:text="${state.city.name}"></a>
+                <ul>
+                    <li th:each="city : ${state.cities}">
+                        <a th:href="@{'/cities/view/' + ${city.id}}" th:text="${city.name}"></a>
+                    </li>
+                </ul>
                 </p>
                 <p>
                     Events:
-                <ul th:each="event : ${state.event}">
+                <ul th:each="event : ${state.events}">
                     <li>
                         <a th:href="@{'/events/view/' + ${event.id}}" th:text="${event.name}"></a>
                     </li>

@@ -19,6 +19,12 @@
         <span th:errors="${event.date}" class="error"></span>
     </div>
 
+    <div class="form-group">
+        <label th:for="location">Event Location</label>
+        <input class="form-control" th:field="${event.location}" />
+        <span th:errors="${event.location}" class="error"></span>
+    </div>
+
     <input type="submit" value="Add Event" />
 </form>
 

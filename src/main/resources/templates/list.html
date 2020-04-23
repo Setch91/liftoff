@@ -26,12 +26,12 @@
         </td>
         <td>
             <li th:each="city : ${cities}">
-                <a th:href="@{/list/states(column=city,value=${employer.name})}" th:text="${city.name}"></a>
+                <a th:href="@{/list/states(column=city,value=${city.name})}" th:text="${city.name}"></a>
             </li>
         </td>
         <td>
             <li th:each="event : ${events}">
-                <a th:href="@{/list/states(column=event,value=${skill.name})}" th:text="${event.name}"></a>
+                <a th:href="@{/list/states(column=event,value=${event.name})}" th:text="${event.name}"></a>
             </li>
         </td>
     </tr>

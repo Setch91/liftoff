@@ -20,6 +20,7 @@ public class State extends AbstractEntity {
     @JoinColumn
     private List<Event> events = new ArrayList<>();
 
+
 //    @Size(min = 1, max = 5)
 //    private Integer rank;
 
@@ -29,14 +30,17 @@ public class State extends AbstractEntity {
     public State(List<City> cities, List<Event> events){
         super();
         this.cities = cities;
-        this.events = events;
     }
-
-    public List<Event> getEvents() { return events; }
-
-    public void setEvents(List<Event> events){ this.events = events;}
 
     public List<City> getCities() { return cities; }
 
     public void setCities(List<City> cities){ this.cities = cities;}
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
 }
