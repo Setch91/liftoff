@@ -31,20 +31,20 @@ public class SearchController {
 
     @RequestMapping("")
     public String search(Model model){
-        model.addAttribute("column", columnChoices);
+        model.addAttribute("columns", columnChoices);
         return "search";
     }
 
     @PostMapping("results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
         Iterable<State> states;
-        if (searchTerm.toLowerCase().equals("all")){
+        if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")){
             states = stateRepo.findAll();
         } else {
             states = Search.findByColumnAndValue(searchType, searchTerm, stateRepo.findAll());
         }
         model.addAttribute("column", columnChoices);
-        model.addAttribute("title", "States with " + columnChoices);
+        model.addAttribute("title", "States with " + columnChoices.get(searchType) + ": " + searchTerm);
         model.addAttribute("states", states);
         model.addAttribute("city", cityRepo.findAll());
         model.addAttribute("event", eventRepo.findAll());
